@@ -9,7 +9,7 @@ import logging
 BIN = os.path.join(os.path.dirname(__file__), "jpegdir", "jpeg")
 
 if not os.path.exists(BIN):
-    print "jpeg is not built yet; use 'cd jpegdir; make' first"
+    print("jpeg is not built yet; use 'cd jpegdir; make' first")
     sys.exit(0)
 
 # sample output
@@ -20,8 +20,8 @@ PATTERN = re.compile('\sC:(\d+)\s+N:(\S+)\s+W:(\d+)\s+H:(\d+)\s')
 
 def read (path):
     cmd = '%s -d -s %s' % (BIN, path)
-    l = subprocess.check_output(cmd, shell=True)
-    #print l
+    l = subprocess.check_output(cmd, shell=True).decode()
+    #print(l)
     m = re.search(PATTERN, l)
     C = int(m.group(1)) # I suppose this is # channels
     F = m.group(2)
