@@ -2,21 +2,28 @@ Usage:
 
 0. Install flex with
 ``` apt-get install flex```.
+
 Building without flex will fail and pollute the codebase.
 
 1. In your python project
 	```
 	git clone https://github.com/aaalgo/ljpeg.git
-
 	```
 	Or if you are using git already:
 	```
 	git submodule add https://github.com/aaalgo/ljpeg.git
 
 	```
+2. ???
+```
+	cd jpegdir
+	lex lexer.l
+	mv lex.yy.c lexer.c
+```
+
 2. Produce the jpeg binary.
 	```
-	cd jpegdir; make
+	make
 
 	```
 3. In your python code:
